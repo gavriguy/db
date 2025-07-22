@@ -31,7 +31,7 @@ const todoCollection = createCollection({
   onUpdate: updateMutationFn,
 })
 
-const Todos = () => {
+const todos = () => {
   // Bind data using live queries
   const { data: todos } = useLiveQuery((q) =>
     q.from({ todo: todoCollection }).where(({ todo }) => todo.completed)
@@ -435,7 +435,7 @@ Use the `useLiveQuery` hook to assign live query results to a state variable in 
 import { useLiveQuery } from '@tanstack/react-db'
 import { eq } from '@tanstack/db'
 
-const Todos = () => {
+const todos = () => {
   const { data: todos } = useLiveQuery((q) =>
     q
       .from({ todo: todoCollection })
@@ -457,7 +457,7 @@ You can also query across collections with joins:
 import { useLiveQuery } from '@tanstack/react-db'
 import { eq } from '@tanstack/db'
 
-const Todos = () => {
+const todos = () => {
   const { data: todos } = useLiveQuery((q) =>
     q
       .from({ todos: todoCollection })
@@ -815,7 +815,7 @@ const listCollection = createCollection(queryCollectionOptions({
   // also add onUpdate, onDelete as needed.
 }))
 
-const Todos = () => {
+const todos = () => {
   // Read the data using live queries. Here we show a live
   // query that joins across two collections.
   const { data: todos } = useLiveQuery((q) =>
